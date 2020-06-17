@@ -6,15 +6,24 @@ export default Ember.Component.extend({
 
   @computed("model.can_do_eth_transaction")
   disabled(canDoTransaction) {
-    return ( !canDoTransaction || (typeof window.web3 == "undefined") || !window.web3.eth.defaultAccount );
+    // return ( !canDoTransaction || (typeof window.web3 == "undefined") || !window.web3.eth.defaultAccount );
+    // Don't check for a defaultAccount, MetaMask connection may not have been accepted yet
+    // Check for window.ethereum, since window.web3 is being depricated
+    // return ( !canDoTransaction || ((typeof window.ethereum == "undefined") && (typeof window.web3 == "undefined")) );
+    // canDoTransaction is probably supposed to be referencing the result of can_do_eth_transaction? from plugin.rb
+    // Do not disable the Send ETH button (even if addresses are undefined) unless no web3 library found
+    return ( (typeof window.ethereum == "undefined") && (typeof window.web3 == "undefined") );
   },
 
   actions: {
     showSendEthModal() {
       if (this.get("disabled")) return;
-      showModal("send-eth", { model: this.get("model") });
+      window.withWeb3().then( ()=> {
+        showModal("send-eth", {model: this.get("model")});
 
-      if (this.get("close")) this.sendAction("close");
+        // if (this.get("close")) this.sendAction("close");
+        if (this.get("close")) this.close();
+      });
     }
   }
 });

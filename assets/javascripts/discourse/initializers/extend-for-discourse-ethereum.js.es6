@@ -22,9 +22,8 @@ function initWithApi(api) {
   });
 
   window.withWeb3 = function () {
-    if(window.web3) {
-      return Promise.resolve(window.web3);
-    } else if(window.ethereum) {
+    if(window.ethereum) {
+      console.log("Attempting Ethereum access via window.ethereum");
       return window.ethereum.enable()
         .then(()=> {
           window.web3 = new Web3(ethereum);
@@ -34,11 +33,16 @@ function initWithApi(api) {
           console.log("User denied account access...", error);
           throw error;
         })
+    } else if(window.web3) {
+      console.log("Attempting Ethereum access via window.web3");
+      return Promise.resolve(window.web3);
     } else {
       console.log("Non-Ethereum browser detected. You should consider trying Metamask!");
       return Promise.reject("No web3 detected");
     }
   }
+
+  window.withWeb3();
 }
 
 export default {
