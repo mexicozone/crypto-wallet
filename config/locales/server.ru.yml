@@ -1,0 +1,22 @@
+ru:
+  site_settings:
+    discourse_ethereum_enabled: "Включить Ethereum плагин"
+    discourse_ethereum_groups: "Включить Ethereum плагин только для пользователей из группы"
+    discourse_ethereum_all_user: "Включить Ethereum плагин для всех пользователей"
+    discourse_ethereum_erc20_token: "ERC20 токен адрес"
+  discourse_ethereum:
+    ether: "Ether"
+    pm_title: "Транзакция %{hash}"
+    pm_body: |
+
+      %{table}
+
+    pm_table:
+      hash: "__Хэш__"
+      contract: "__Контракт__"
+      from: "__От__"
+      to: "__Кому__"
+      token_transfered: "__Токен передачи__"
+      value: "__Значение__"
+      gas: "__Gas__"
+      gas_price: "__Gas Price__"
