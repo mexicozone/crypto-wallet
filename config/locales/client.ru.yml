@@ -1,0 +1,14 @@
+ru:
+  js:
+    discourse_ethereum:
+      ethereum_address: "Ethereum адрес"
+      send_ethereum: "Отправить ETH"
+      send_eth_button: "Отправить ETH"
+      send: "Отправить"
+      enter_amount: "Введите сумму"
+      balance: "Баланс:"
+      processing: "Обработка транзакции..."
+      transaction_id: "ID транзакции:"
+      success_message: "Вы получите личное сообщение с деталями о транзакции."
+      error_message: "Произошла ошибка!"
+      ok: "ОК"
