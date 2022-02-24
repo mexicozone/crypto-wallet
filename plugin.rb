@@ -1,5 +1,5 @@
-# name: crypto-wallet
-# version: 0.1.5
+# name: discourse-ethereum
+# version: 0.1.4
 # author: ProCourse Team
 # url: https://github.com/santiment/discourse-ethereum
 
