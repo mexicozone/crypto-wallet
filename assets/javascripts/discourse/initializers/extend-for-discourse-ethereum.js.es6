@@ -37,8 +37,8 @@ function initWithApi(api) {
       console.log("Attempting Ethereum access via window.web3");
       return Promise.resolve(window.web3);
     } else {
-      console.log("Non-Ethereum browser detected. You should consider trying Metamask!");
-      return Promise.reject("No web3 detected");
+      console.log("Youre crypto wallet not activated on the forum Emporium.");
+      return Promise.reject("Web3: offline");
     }
   }
 
